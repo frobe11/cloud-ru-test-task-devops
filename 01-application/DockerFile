@@ -1,0 +1,12 @@
+##docker build -t 01-application-image -f DockerFile .
+FROM python:3-slim
+
+WORKDIR /app
+
+RUN pip install python-dotenv
+
+COPY Server.py Server.py
+
+EXPOSE 8000
+
+CMD python3 Server.py
