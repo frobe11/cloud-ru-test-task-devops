@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: 01-application
+  namespace: 01-application-namespace
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: printing-server-info
+  template:
+    metadata:
+      labels:
+        app: printing-server-info
+    spec:
+      imagePullSecrets:
+      - name: dockerhub
+      containers:
+        - name: printing-server-info
+          image: frobe11/01-application-image:latest
+          ports:
+            - containerPort: 8000
+          env:
+            - name: AUTHOR
+              value: "Frobe"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 15
+            periodSeconds: 20

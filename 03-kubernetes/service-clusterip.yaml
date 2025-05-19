@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: application-service
+  namespace: 01-application-namespace
+spec:
+  selector:
+    app: printing-server-info
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
+  type: ClusterIP
