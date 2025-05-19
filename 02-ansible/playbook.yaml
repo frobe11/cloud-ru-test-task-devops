@@ -3,7 +3,7 @@
   hosts: cloud-ru-tagret
   become: true
   vars:
-    docker_pass: 7gS-82k-FcW-fZZ
+    docker_pass: SECRET
   roles:
     - role: docker-ce_setup
     - role: nginx_setup
