@@ -1,0 +1,9 @@
+---
+- name: Deploy 01-application
+  hosts: cloud-ru-tagret
+  become: true
+  vars:
+    docker_pass: 7gS-82k-FcW-fZZ
+  roles:
+    - role: docker-ce_setup
+    - role: nginx_setup

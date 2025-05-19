@@ -1,0 +1,6 @@
+docker_image_name: frobe11/01-application-image:latest
+docker_container_name: server-01-application
+docker_container_count: 3
+docker_repo_key_path: /etc/apt/keyrings/docker.asc
+docker_user: "frobe11"
+docker_pass: "DONT_WORRY_I_AM_NOT_THAT_STUPID"

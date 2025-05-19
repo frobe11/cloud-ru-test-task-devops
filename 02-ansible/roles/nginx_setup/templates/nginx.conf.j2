@@ -1,0 +1,13 @@
+upstream I-LOVE-CLOUD-RU {
+    {% for i in range(1, nginx_upstreams_server_count + 1) %}
+    server 127.0.0.1:800{{i}};
+    {% endfor %}
+}
+
+server {
+    listen 80;
+
+    location / {
+        proxy_pass http://I-LOVE-CLOUD-RU;
+    }
+}
